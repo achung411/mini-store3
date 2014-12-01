@@ -1,0 +1,55 @@
+<div class="sidebar col-sm-3">
+	<input type="text" class="search" name="searchbar" placeholder="search">
+	<p class="section_title">Add a new product</p>
+	<form action="" role="form">
+		<div class="form-group">
+			<label for="product_name">Name:</label>
+			<input type="text" id="product_name" name="product[name]" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="product_image_link">Image(url):</label>
+			<input type="text" id="product_image_link" name="product[image_link]" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="product_description">Description:</label>
+			<textarea name="product[description]" id="product_description" rows="5" class="form-control"></textarea>
+		</div>
+		<div class="form-group">
+			<label for="product_quantity">Initial Quantity</label>
+			<select name="product[quantity]" id="product_quantity">
+				<option value="">1</option>
+				<option value="">2</option>
+				<option value="">3</option>
+				<option value="">4</option>
+				<option value="">5</option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary pull-right">Create</button>
+	</form>
+</div>
+
+<div class="main-content col-sm-9">
+	<div class="catalog">
+		<div class="item">
+			<img src="./images/mcfly.jpg" alt="shoes">
+			<p>Nike Shoes</p>
+			<p>(20 left)</p>
+		</div>
+		<div class="item">
+			<img src="./images/kindle.png" alt="kindle">
+			<p>Amazon Kindle</p>
+			<p>(40 left)</p>
+		</div>
+		<div class="item">
+			<img src="./images/strat.jpg" alt="strat">
+			<p>Fender Stratocaster</p>
+			<p>(7 left)</p>
+		</div>
+		<div class="item">
+			<img src="./images/black_belt.jpg" alt="black belt">
+			<p>Black Belt</p>
+			<p>(65 left)</p>
+		</div>
+		<a href="" class="load_prompt">show more...</a>					
+	</div>
+</div>

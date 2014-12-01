@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='ministore'>
+<head>
+	<meta charset="UTF-8">
+	<title>title</title>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-route.min.js"></script>  
+	<link rel="stylesheet" type="text/css" href="./stylesheets/reset.min.css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet/less" type="text/css" href="./stylesheets/style.less" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.0.0/less.min.js"></script>
+<script>
+var ministore = angular.module('ministore', ['ngRoute']);
+
+ministore.config(function ($routeProvider) {
+	$routeProvider
+	  .when('/dashboard',
+	  {
+	  	templateUrl: '/partials/dashboard.html'
+	  })
+	  .when('/products',
+	  {
+	  	templateUrl: '/partials/products.html'
+	  })
+	  .when('/orders',
+	  {
+	  	templateUrl: '/partials/orders.html'
+	  })
+	  .when('/customers',
+	  {
+	  	templateUrl: '/partials/customers.html'
+	  })
+	  .when('/settings',
+	  {
+	  	templateUrl: '/partials/settings.html'
+	  })
+	  .otherwise({
+	  	redirectTo: '/dashboard'
+	  });	  
+});
+
+ministore.controller("welcomeController", function($scope) {
+
+	$scope.crap = "awww fml...";
+
+});
+
+ministore.controller("dashboardController", function($scope) {
+	$scope.msg = "hi everyone.";
+
+	$scope.cool = "This is totally not cool...  wtf?!??!?";
+});
+</script>
+</head>
+<body>
+	<nav ng-controller="welcomeController">
+		<a href="#/dashboard">Dashboard</a>
+		<a href="#/products">Products</a>
+		<a href="#/orders">Orders</a>
+		<a href="#/customers">Customers</a>
+		<a href="#/settings">Settings</a>
+	</nav>
+
+	<div ng-view=""></div>
+</body>
+</html>
