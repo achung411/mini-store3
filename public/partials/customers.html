@@ -1,45 +1,37 @@
-<div class="col-sm-12">
-	<form class="form-inline col-sm-8" role="form" action="">
-		<p class="section_title">Add a new customer</p>
-		<div class="form-group">
-			<label for="customer">Customer Name:</label>
-			<div class="input-group">
-				<input type="text" name="customer" id="customer" class="form-control">
+<div ng-controller="customersController">
+
+	<div class="col-sm-12">
+		<form class="form-inline col-sm-8" role="form">
+			<p class="section_title">Add a new customer</p>
+			<div class="form-group">
+				<label for="customer">Customer Name:</label>
+				<div class="input-group">
+					<input type="text" id="customer" class="form-control" ng-model="new_customer.name">
+				</div>
 			</div>
-		</div>
-		<button type="submit" class="btn btn-primary">Add</button>
-	</form>
+			<button class="btn btn-primary" ng-click="addCustomer(new_customer)">Add</button>
+		</form>
+	</div>
+
+	<input type="text" name="searchbar" class="search pull-right" placeholder="filter..." ng-model="customer_filter">
+
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="customer in allCustomers | filter: customer_filter">
+			<tr>
+				<td ng-bind="customer.name"></td>
+				<td>Nike Shoes</td>
+				<td>2</td>
+				<td>April 3rd 2014</td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>
-
-<input type="text" name="searchbar" class="search pull-right" placeholder="filter...">
-
-<table class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Customer Name</th>
-			<th>Product</th>
-			<th>Quantity</th>
-			<th>Date</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Michael Choi</td>
-			<td>Nike Shoes</td>
-			<td>2</td>
-			<td>April 3rd 2014</td>
-		</tr>
-		<tr>
-			<td>Michael Choi</td>
-			<td>Nike Shoes</td>
-			<td>2</td>
-			<td>April 3rd 2014</td>
-		</tr>
-		<tr>
-			<td>Michael Choi</td>
-			<td>Nike Shoes</td>
-			<td>2</td>
-			<td>April 3rd 2014</td>
-		</tr>
-	</tbody>
-</table>

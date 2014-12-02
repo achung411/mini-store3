@@ -39,6 +39,28 @@ ministore.config(function ($routeProvider) {
 	  });	  
 });
 
+ministore.factory("CustomerFactory", function($http) {
+	var factory = {};
+
+	var customers = [];
+
+	factory.getCustomers = function (callback) {
+		$http.get('/customers.json').success(function (data) {
+			customers = data;
+			callback(data);
+		});
+	};
+
+	factory.addCustomer = function (new_customer, callback) {
+		var newcomer = {name: new_customer.name};
+		$http.post('/customers/create', newcomer).success(function () {
+			customers.push(newcomer);
+		});
+	};
+
+	return factory;
+});
+
 ministore.controller("welcomeController", function($scope) {
 
 	$scope.crap = "awww fml...";
@@ -49,6 +71,34 @@ ministore.controller("dashboardController", function($scope) {
 	$scope.msg = "hi everyone.";
 
 	$scope.cool = "This is totally not cool...  wtf?!??!?";
+});
+
+
+
+
+ministore.controller("customersController", function($scope, CustomerFactory) {
+
+	CustomerFactory.getCustomers(function(data) {
+		$scope.allCustomers = data;
+	});
+
+	$scope.addCustomer = function(new_customer) {
+		console.log("We're out to add " + new_customer.name + " to our customer base!");
+		CustomerFactory.addCustomer(new_customer);
+	};
+
+});
+
+
+
+
+
+
+ministore.controller("ordersController", function($scope, CustomerFactory) {
+	CustomerFactory.getCustomers(function(data) {
+		$scope.allCustomers = data;
+	});
+
 });
 </script>
 </head>

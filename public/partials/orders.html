@@ -1,79 +1,80 @@
-<div class="col-sm-12">
-	<form class="form-horizontal col-sm-8" role="form" action="">
-		<p class="section_title">Add a new order</p>
-		<div class="form-group">
-			<label for="customer" class="col-sm-2 control-label">Customer</label>
-			<div class="col-sm-6">
-				<select name="customer" id="customer" class="form-control">
-					<option value="">Michael Choi</option>
-					<option value="">John Supsupin</option>
-					<option value="">Trey Villafane</option>
-					<option value="">India Meisner</option>
-				</select>
+<div ng-controller="ordersController">
+
+	<div class="col-sm-12">
+		<form class="form-horizontal col-sm-8" role="form">
+			<p class="section_title">Add a new order</p>
+			<div class="form-group">
+				<label for="customer" class="col-sm-2 control-label">Customer</label>
+				<div class="col-sm-6">
+					<select name="customer" id="customer" class="form-control">
+						<option value="{{customer.name}}" ng-repeat="customer in allCustomers" ng-bind="customer.name"></option>
+					</select>
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label for="quantity" class="col-sm-2 control-label">Order</label>
-			<div class="col-sm-2">
-				<select name="quantity" id="quantity" class="form-control">
-					<option value="">1</option>
-					<option value="">2</option>
-					<option value="">3</option>
-					<option value="">4</option>
-					<option value="">5</option>
-				</select>
+			<div class="form-group">
+				<label for="quantity" class="col-sm-2 control-label">Order</label>
+				<div class="col-sm-2">
+					<select name="quantity" id="quantity" class="form-control">
+						<option value="">1</option>
+						<option value="">2</option>
+						<option value="">3</option>
+						<option value="">4</option>
+						<option value="">5</option>
+					</select>
+				</div>
+				<div class="col-sm-4">
+					<select name="product" class="form-control">
+						<option value="">Nike Shoes</option>
+						<option value="">Black Belts</option>
+						<option value="">Amazon Kindles</option>
+						<option value="">Fender Strats</option>
+					</select>
+				</div>
 			</div>
-			<div class="col-sm-4">
-				<select name="product" class="form-control">
-					<option value="">Nike Shoes</option>
-					<option value="">Black Belts</option>
-					<option value="">Amazon Kindles</option>
-					<option value="">Fender Strats</option>
-				</select>
+			<div class="col-sm-8">
+				<button class="btn btn-primary pull-right">Order</button>
 			</div>
-		</div>
-		<div class="col-sm-8">
-			<button class="btn btn-primary pull-right">Order</button>
-		</div>
-	</form>
+		</form>
+	</div>
+
+	<input type="text" name="searchbar" class="search pull-right" placeholder="filter...">
+
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Michael Choi</td>
+				<td>Nike Shoes</td>
+				<td>2</td>
+				<td>April 3rd 2014</td>
+			</tr>
+			<tr>
+				<td>Michael Choi</td>
+				<td>Nike Shoes</td>
+				<td>2</td>
+				<td>April 3rd 2014</td>
+			</tr>
+			<tr>
+				<td>Michael Choi</td>
+				<td>Nike Shoes</td>
+				<td>2</td>
+				<td>April 3rd 2014</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- <div ng-controller = "dashboardController"> -->
+		<p>this should precede the new msg</p>
+		<p>{{cool}}</p>
+		<p>how about this one?</p>
+		<p ng-bind="cool"></p>
+	<!-- </div> -->
+
 </div>
-
-<input type="text" name="searchbar" class="search pull-right" placeholder="filter...">
-
-<table class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Customer Name</th>
-			<th>Product</th>
-			<th>Quantity</th>
-			<th>Date</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Michael Choi</td>
-			<td>Nike Shoes</td>
-			<td>2</td>
-			<td>April 3rd 2014</td>
-		</tr>
-		<tr>
-			<td>Michael Choi</td>
-			<td>Nike Shoes</td>
-			<td>2</td>
-			<td>April 3rd 2014</td>
-		</tr>
-		<tr>
-			<td>Michael Choi</td>
-			<td>Nike Shoes</td>
-			<td>2</td>
-			<td>April 3rd 2014</td>
-		</tr>
-	</tbody>
-</table>
-
-<!-- <div ng-controller = "dashboardController"> -->
-	<p>this should precede the new msg</p>
-	<p>{{cool}}</p>
-	<p>how about this one?</p>
-	<p ng-bind="cool"></p>
-<!-- </div> -->
